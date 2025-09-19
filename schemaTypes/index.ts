@@ -8,6 +8,7 @@ import {nominationType} from './nominationType'
 import adminUserType from './adminUserType'
 import membershipSchema from './membershipType'
 import {contactType} from './contactType'
+import {achievementType} from './achievementType'
 
 export const schemaTypes = [
   honorType,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   adminUserType,
   membershipSchema,
   contactType,
+  achievementType,
 ]

@@ -90,6 +90,20 @@ export default defineType({
       type: 'text',
       description: 'Optional vision statement or personal mission',
     }),
+    defineField({
+      name: 'isActive',
+      title: 'Is Active',
+      type: 'boolean',
+      description: 'Whether this member is currently active',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
+      description: 'Order in which this member should be displayed (lower numbers appear first)',
+      initialValue: 0,
+    }),
   ],
   preview: {
     select: {

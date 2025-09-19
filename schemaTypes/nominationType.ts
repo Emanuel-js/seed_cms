@@ -77,19 +77,16 @@ export const nominationType = defineType({
           name: 'firstName',
           title: 'First Name',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'lastName',
           title: 'Last Name',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'email',
           title: 'Email',
           type: 'string',
-          validation: (Rule) => Rule.required().email(),
         }),
         defineField({
           name: 'phone',
@@ -122,7 +119,6 @@ export const nominationType = defineType({
           },
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Nominator Information
@@ -135,19 +131,16 @@ export const nominationType = defineType({
           name: 'firstName',
           title: 'First Name',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'lastName',
           title: 'Last Name',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'email',
           title: 'Email',
           type: 'string',
-          validation: (Rule) => Rule.required().email(),
         }),
         defineField({
           name: 'phone',
@@ -165,7 +158,6 @@ export const nominationType = defineType({
           type: 'string',
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Academic Information (for students)
@@ -189,7 +181,6 @@ export const nominationType = defineType({
           name: 'gpa',
           title: 'GPA',
           type: 'number',
-          validation: (Rule) => Rule.min(0).max(4),
         }),
         defineField({
           name: 'satScore',
@@ -211,12 +202,18 @@ export const nominationType = defineType({
           title: 'Honors and Awards',
           type: 'array',
           of: [{type: 'string'}],
+          options: {
+            sortable: true,
+          },
         }),
         defineField({
           name: 'extracurricularActivities',
           title: 'Extracurricular Activities',
           type: 'array',
           of: [{type: 'string'}],
+          options: {
+            sortable: true,
+          },
         }),
       ],
     }),
@@ -241,7 +238,7 @@ export const nominationType = defineType({
         defineField({
           name: 'yearsOfExperience',
           title: 'Years of Experience',
-          type: 'number',
+          type: 'string',
         }),
         defineField({
           name: 'education',
@@ -255,14 +252,23 @@ export const nominationType = defineType({
                 {name: 'institution', title: 'Institution', type: 'string'},
                 {name: 'year', title: 'Year', type: 'number'},
               ],
+              initialValue: () => ({
+                _key: Math.random().toString(36).substr(2, 9)
+              })
             },
           ],
+          options: {
+            sortable: true,
+          },
         }),
         defineField({
           name: 'certifications',
           title: 'Certifications',
           type: 'array',
           of: [{type: 'string'}],
+          options: {
+            sortable: true,
+          },
         }),
       ],
     }),
@@ -277,19 +283,16 @@ export const nominationType = defineType({
           name: 'summary',
           title: 'Achievement Summary',
           type: 'text',
-          validation: (Rule) => Rule.required().min(100).max(500),
         }),
         defineField({
           name: 'detailedDescription',
           title: 'Detailed Description',
           type: 'text',
-          validation: (Rule) => Rule.required().min(200),
         }),
         defineField({
           name: 'impact',
           title: 'Impact on Community',
           type: 'text',
-          validation: (Rule) => Rule.required().min(100),
         }),
         defineField({
           name: 'challenges',
@@ -323,10 +326,10 @@ export const nominationType = defineType({
               'Sports',
               'Environmental Conservation',
             ],
+            sortable: true,
           },
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Supporting Documents
@@ -350,19 +353,43 @@ export const nominationType = defineType({
           name: 'lettersOfRecommendation',
           title: 'Letters of Recommendation',
           type: 'array',
-          of: [{type: 'file'}],
+          of: [{
+            type: 'file',
+            initialValue: () => ({
+              _key: Math.random().toString(36).substr(2, 9)
+            })
+          }],
+          options: {
+            sortable: true,
+          },
         }),
         defineField({
           name: 'additionalDocuments',
           title: 'Additional Supporting Documents',
           type: 'array',
-          of: [{type: 'file'}],
+          of: [{
+            type: 'file',
+            initialValue: () => ({
+              _key: Math.random().toString(36).substr(2, 9)
+            })
+          }],
+          options: {
+            sortable: true,
+          },
         }),
         defineField({
           name: 'portfolio',
           title: 'Portfolio/Work Samples',
           type: 'array',
-          of: [{type: 'file'}],
+          of: [{
+            type: 'file',
+            initialValue: () => ({
+              _key: Math.random().toString(36).substr(2, 9)
+            })
+          }],
+          options: {
+            sortable: true,
+          },
         }),
       ],
     }),
@@ -437,6 +464,9 @@ export const nominationType = defineType({
           title: 'Tags',
           type: 'array',
           of: [{type: 'string'}],
+          options: {
+            sortable: true,
+          },
         }),
       ],
     }),
